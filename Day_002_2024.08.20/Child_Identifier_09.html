@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul > li:nth-child(2) {
+            background-color: yellow;
+        }
+        li:nth-child(5) {
+            background-color: purple;
+        }
+        ul > li:nth-child(5n + 3) {
+            background-color: red;
+        }
+        ul > li:nth-child(5n + 1) {
+            background-color: orange;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        tr, td {
+            border: 1px solid black;
+        }
+        td {
+            padding: 20px;
+        }
+        tr:nth-child(2n+1) > td:nth-child(2) {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>오랜지</li>
+        <li>바나나</li>
+        <li>사과</li>
+        <li>배</li>
+        <li>포도</li>
+        <li>오랜지</li>
+        <li>바나나</li>
+        <li>사과</li>
+        <li>배</li>
+        <li>포도</li>
+        <li>오랜지</li>
+        <li>바나나</li>
+        <li>사과</li>
+        <li>배</li>
+        <li>포도</li>
+    </ul>
+    <table class="tabel1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
