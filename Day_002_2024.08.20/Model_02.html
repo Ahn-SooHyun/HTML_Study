@@ -37,14 +37,16 @@
             border: solid 1px black;
             border-radius: 15px;
         }
-	.btn_close {
-	float:right; /* 선호하지 않음 */
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 20px;
-    cursor: pointer;
-	}
-
+        .btn_close {
+        float:right; /* 선호하지 않음 */
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: 20px;
+        cursor: pointer;
+        }
+        .btn_close:hover {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -63,19 +65,19 @@
     
     <!-- html5 넘어오면서, javascript를 생략이 가능하도록 바뀜 -->
     <script text="javascript"> 
-    function Click_Button(){
-        //alert('실행됨')
-        let model = document.getElementById('model_open');
-        console.log(model);
-        console.log(typeof(model));
+        function Click_Button(){
+            //alert('실행됨')
+            let model = document.getElementById('model_open');
+            console.log(model);
+            console.log(typeof(model));
 
-        model.style.display = 'block';
-    }
-    
-    function Close_Button() {
-    let model = document.getElementById('model_open');
-    model.style.display = 'none';
-    }
+            model.style.display = 'block';
+        }
+        
+        function Close_Button() {
+        let model = document.getElementById('model_open');
+        model.style.display = 'none';
+        }
     
     </script>
 </body>
