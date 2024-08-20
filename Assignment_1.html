@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            table th {
+                background-color: rgb(7, 67, 186);
+                color: white;
+                font-weight: normal;
+                text-align: left;
+            }
+            td {
+                width: 130px;
+            }
+            .head {
+                background-color: rgb(119, 136, 242);
+                text-align: center;
+            }
+            .value {
+                background-color: rgb(119, 136, 242);
+            }
+        </style>
+    </head>
+    <body>
+        <table class="table">
+            <th colspan="3"> 오늘의 수입/지출</th>
+            <tr class="head">
+                <td>내용</td>
+                <td>수입</td>
+                <td>지출</td>
+            </tr>
+            <tr>
+                <td>월급</td>
+                <td>1,000,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>점심값</td>
+                <td></td>
+                <td>5,000</td>
+            </tr>
+            <tr>
+                <td>부모님 선물</td>
+                <td></td>
+                <td>30,000</td>
+            </tr>
+            <tr>
+                <td rowspan="3" class="value">총계</td>
+                <td>수입</td>
+                <td>지출</td>
+            </tr>
+            <tr>
+                <td>1,000,000</td>
+                <td>35,000</td>
+            </tr>
+            <tr>
+                <td>남은 돈</td>
+                <td>965,000</td>
+            </tr>
+        </table>
+    </body>
+</html>
