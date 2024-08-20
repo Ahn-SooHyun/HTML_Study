@@ -49,6 +49,25 @@
                 border: 1px solid #000;
                 overflow: scroll;
             }
+            /* 점심 이후 추가된 css */
+            .gra{
+                margin-top: 20px;
+                width: 400px;
+                height: 300px;
+                border: 1px solid #000;
+            }
+            /* 배경을 그라디언트를 주는데, 오른쪽 방향으로 0 빨강 - 50 노랑 - 100 파랑 */
+            .back-gradiend{
+                background: linear-gradient(to right, red 0%, yellow 50%, blue 100%); 
+            }
+            /* 배경을 그라디언트를 주는데, 50도 꺾어서 0 빨강 - 100 파랑 */
+            .back-gradiend2{
+                background: linear-gradient(50deg , red 0%, blue 100%);
+            }
+            /* 배경을 그라디언트를 주는데, 원형 모양으로 10 빨강 - 50 파랑 - 끝에서 노랑 */
+            .back-gradiend3{
+                background: radial-gradient(circle at 10% 50%,red, blue, yellow);
+            }
         </style>
     </head>
 
@@ -96,5 +115,10 @@
             은행권이 소상공인 지원에 대한 접근 방식을 전환할 필요가 있다는 의견도 밝혔습니다.
             김 위원장은 "올해 상반기 소상공인 대출 잔액이 코로나19 발생 전인 2019년 말에 비해 약 380조 원 늘었다"며 "정부가 금융권과 협력해 만기연장과 상환유예 등의 조치를 취해왔지만 소상공인 부채가 우리 경제뿐 아니라 은행의 건전성에도 영향을 미칠 수 있다"고 지적했습니다.
             이어 "소상공인에 맞춤형으로 상환 부담을 덜어주기 위해서는 차주의 상환 여건을 가장 잘 아는 은행의 역할이 중요하다"며 "차주 상환 능력을 고려한 부채 관리를 시스템으로 내재화하는 방안을 함께 마련해보자"고 제안했습니다.
+        </div>    
+        <!-- 점심 이후 추가된 html -->
+        <div class="gra back-gradiend"></div>
+        <div class="gra back-gradiend2"></div>
+        <div class="gra back-gradiend3"></div>
     </body>
 </html>
