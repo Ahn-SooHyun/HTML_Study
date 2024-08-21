@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="User_Id">
+
+    <script>
+        // JavaScript의 변수 타입
+        // var, let, const  // 데이터 타입 X
+        // 변수 타입 변수명 = 값
+        var v1 = 'banana';
+        console.log(v1);
+        var v1 = 'apple';
+        console.log(v1);
+
+        // let : 재선언 방지 해준다.
+        let le1 = 'banana';
+        // let le1 = 'apple' // 않됨
+        // 이건 가능
+        // function lets() {
+        //     let le1 = 'apple'
+        // }
+
+        // const : 재선언 금지
+        const con1 = '상수';
+        // 오류 남
+        // 결과
+        // TypeError: Assignment to constant variable.
+        // con1 = '111'
+        console.log(con1);
+
+        // null, undefined.
+        // null : 값이 없다
+        // undefined : 값이 할당 되지 않은 상태.
+        // let yy;
+        // console.log(yy);
+        //결과
+        // undefined
+
+        // null 오류가 뜨는 흔한 예
+        // let dd = document.getElementById('오타')
+        // console.log(dd);
+        let dd = document.getElementById('User_Id').value;
+        console.log(dd);
+        if ( dd == 'undefined' || dd == null) {
+
+        }
+
+        let num = 123;          // 숫자 타입
+        let str = '123';        //문자 타입
+        typeof(num);            //데이터 타입을 알려주는 친구.
+        typeof(str);
+        console.log('1', '2');  //출력시 1, 2나옴
+        console.log(typeof(num), num);
+        console.log(typeof(str), str);
+
+        // 데이터 타입 변환
+        // 숫자 타입으로 변환
+        let num2 = '100' * 1;
+        console.log(typeof(num2), num2);
+        // 문자 타입으로 변환
+        let str2 = 100 + '';
+        console.log(typeof(str2), str2);
+
+        // Number(): 숫자 인식
+        // NumberType, 1.2
+        console.log(typeof(Number('1.2')), Number('1.2'));
+
+        // parseInt(): 숫자 인식 ( 정수 )
+        console.log(typeof(parseInt('1.2')), parseInt('1.2'));
+
+        // parseFloat(): 숫자 인식 ( 소수 점 나옵니다. )
+        console.log(typeof(parseFloat('1')), parseFloat('1'));
+
+        // String(): 문자로 인식.
+        console.log(typeof(String(100)), String(100));
+
+        // 논리 ( true,  false )
+        console.log(typeof(Boolean('true')), String('true'));
+
+        // console.log();  // console, F12 개발자도구에서 log
+        
+    </script>
+</body>
+</html>

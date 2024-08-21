@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input3_03</title>
+</head>
+<body>
+    <input type="text" name="" id="User_Id" value="Hello World">
+
+    <input type="button" value="Click" onclick="클릭()">
+
+    <script>
+        //let dd = document.getElementById('User_Id').value;
+        let dd = document.getElementById('User_Id');
+        // stack - heap.
+        // dd => 'Hello World'; -> String X.
+        document.getElementById('User_Id').value = 'Java';
+        dd.value = '청양';
+
+        //이벤트 핸들러 ( 마우스, 키보드. 페이지 )
+        function 클릭() {
+            alert(dd.value);
+        }
+        
+
+    </script>
+</body>
+</html>

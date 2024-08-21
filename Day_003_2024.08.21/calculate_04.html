@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- type : 사용자 기능 종류 -->
+    <!-- id : html 테그 중, 해당 tag를 가리킬 수 있는 수단 중 하나 (대표) -->
+    <!-- 중복 불가 -->
+    <!-- value : 사용자가 입력하는 공간, 값 -->
+    <input type="text" name="" id="First_Number" placeholder="First_Number"> + <input type="text" name="" id="Second_Number" placeholder="Second_Number">
+    <br>
+    <button onclick="value_Button()">Value</button>
+    <br>
+    <input type="text" id="Value" placeholder="Value">
+    <script>
+        //input 창 3개. 첫번째 값 + 두번째 값  = 결과 값.
+        // 버튼.
+        
+        // document.getElementById('[HTML에 선언 된 ID]')
+        let FNum = document.getElementById("First_Number");
+        let SNum = document.getElementById("Second_Number");
+        let VNum = document.getElementById("Value");
+        function value_Button() { 
+            VNum.value = parseFloat(FNum.value) + parseFloat(SNum.value);
+        }
+    </script>
+</body>
+</html>
