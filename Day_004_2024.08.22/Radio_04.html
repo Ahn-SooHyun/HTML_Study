@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>좋아하는 국가는</h1>
+        <input type="radio" name="con" value="KR"> KR
+        <input type="radio" name="con" value="US"> US
+        <input type="radio" name="con" value="GER"> GER
+        <input type="radio" name="con" value="SPA"> SPA
+        <br><br>
+        <input type="button" value="choice" onclick="result()">
+
+        <script>
+            function result() {
+                // getElementsByName 은 배열로 리턴
+                let ra = document.getElementsByName('con');
+                console.log(ra);
+                for(let i = 0; i < ra.length; i++) {
+                    console.log(ra[i]);
+                    console.log(ra[i].checked);
+                    console.log(ra[i].value);
+                }
+            }
+        </script>
+    </body>
+</html>
