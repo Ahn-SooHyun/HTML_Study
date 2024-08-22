@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body,
+        html {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            /* 뷰포트 높이 */
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            overflow: hidden;
+
+        }
+
+        canvas {
+            display: block;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        form {
+            position: absolute;
+            top: 5%;
+            border: 3px solid black;
+            height: 900px;
+            z-index: 3;
+            padding: 50px;
+            background-color: white;
+            background-color: rgb(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+
+        table {
+            margin-top: 30px;
+            height: 500px;
+        }
+
+        table,
+        td,
+        tr {
+            border-collapse: collapse;
+            font-weight: bold;
+        }
+
+        td {
+            font-size: 20px;
+        }
+
+        .hd {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #22E680;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: rgb(4, 58, 8);
+        }
+
+        table input {
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: transparent;
+        }
+        table input:focus {
+            border-color: #54a854;
+            border-width: 3px;
+        }
+
+        .fl {
+            background-color: #53E622;
+            border: 2px solid white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+            padding: 10px 20px;
+        }
+
+        td:nth-child(2) {
+            border: 2px solid #CBD1DF;
+        }
+        span {
+            padding-right: 20px;
+        }
+
+        .btn {
+            border: 0;
+            width: 150px;
+            height: 60px;
+            margin-top: 20px;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+            background-color: #22E680;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #158E25;
+        }
+
+        .a1 {
+            width: 200px;
+        }
+
+        .date {
+            width: 200px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        /* 버튼 영역*/ 
+        .btn_area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .btn_area input[type="button"] {
+            margin: 25px 20px;
+            border-radius: 8px;
+        }
+        textarea {
+            margin: 10px 20px;
+        }
+        .sel {
+            border-radius: 8px;
+            margin-top: 13px;
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <form>
+        <table>
+            <tr>
+                <td class="hd" colspan="2">회원 기본 정보</td>
+            </tr>
+            <tr>
+                <td class="fl">아이디</td>
+                <td><input type="text" id="User_Id" class="a1"> <span> 4 ~ 12자의 영문 대소문자와 숫자로만 입력 </span></td>
+            </tr>
+            <tr>
+                <td class="fl">비밀번호</td>
+                <td><input type="password" id="User_PassWord" class="a1"> <span> 4 ~ 12자의 영문 대소문자와 숫자로만 입력 </span></td>
+            </tr>
+            <tr>
+                <td class="fl">비밀번호 확인</td>
+                <td><input type="password" id="User_PassWord_Check" class="a1"></td>
+            </tr>
+            <tr>
+                <td class="fl">메일 주소</td>
+                <td>
+                    <input type="text" id="E-Mail" class="a1"> 
+                    <span>@</span>
+                    <select id="mail" class="sel">
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="korean.com">korean.com</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="fl">이름</td>
+                <td><input type="text" id="name" style="width: 300px;"></td>
+            </tr>
+            <tr>
+                <td class="hd" colspan="2">개인 신상 정보</td>
+            </tr>
+            <tr>
+                <td class="fl">주민등록번호</td>
+                <td>
+                    <input type="text" id="address_f" class="a1" maxlength="6"> -
+                    <input type="text" id="address_b" class="a1" maxlength="7">
+                </td>
+            </tr>
+            <tr>
+                <td class="fl">생일</td>
+                <td>
+                    <input type="date" id="birthdate" class="date" name="birthdate" value="2001-03-10" min="1965-01-01"
+                        max="2004-08-22" />
+                </td>
+            </tr>
+            <tr>
+                <td class="fl">관심분야</td>
+                <td>
+                    <input type="checkbox" name="hobbys" value="컴퓨터">컴퓨터
+                    <input type="checkbox" name="hobbys" value="인터넷">인터넷
+                    <input type="checkbox" name="hobbys" value="여행">여행
+                    <input type="checkbox" name="hobbys" value="영화감상">영화감상
+                    <input type="checkbox" name="hobbys" value="음악감상">음악감상
+                </td>
+            </tr>
+            <tr>
+                <td class="fl">자기소개</td>
+                <td>
+                    <textarea id="textarea" name="w3review" rows="8" cols="100%"></textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="btn_area">
+            <input type="button" class="btn" onclick="validateForm()" value="등록">
+            <input type="button" class="btn" onclick="resetForm()" value="초기화">
+        </div>
+    </form>
+
+
+    <script>
+        let userId = document.getElementById("User_Id");
+        let password = document.getElementById("User_PassWord");
+        let passwordCheck = document.getElementById("User_PassWord_Check");
+        let email = document.getElementById("E-Mail");
+        let name = document.getElementById("name");
+        let address_f = document.getElementById("address_f");
+        let address_b = document.getElementById("address_b");
+        let birthdate = document.getElementById("birthdate");
+        let introduction = document.getElementById("textarea");
+        const hobby = document.getElementsByName('hobbys');
+
+        function validateForm() {
+            let hobbies = new Array();
+            let hobbyCheck = 0;
+            // 아이디 유효성 검사
+            if (userId.value.length < 4 || userId.value.length > 12 || !/^[a-zA-Z0-9]+$/.test(userId.value)) {
+                alert("아이디는 4 ~ 12자의 영문 대소문자와 숫자로만 입력해야 합니다.");
+                userId.value = ""
+                userId.focus();
+                return;
+            }
+
+            // 비밀번호 유효성 검사
+            if (password.value.length < 4 || password.value.length > 12 || !/^[a-zA-Z0-9]+$/.test(password.value)) {
+                alert("비밀번호는 4 ~ 12자의 영문 대소문자와 숫자로만 입력해야 합니다.");
+                password.value = ""
+                passwordCheck.value = ""
+                password.focus();
+                return;
+            }
+
+            // 비밀번호 확인 유효성 검사
+            if (password.value !== passwordCheck.value) {
+                alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                password.value = ""
+                passwordCheck.value = ""
+                password.focus();
+                return;
+            }
+
+            // 이메일 유효성 검사
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value + "@" + document.getElementById("mail").value)) {
+                alert("유효한 이메일 주소를 입력해주세요.");
+                email.value = "";
+                email.focus();
+                return;
+            }
+
+            // 이름 유효성 검사
+            if (name.value.trim() === "") {
+                alert("이름을 입력해주세요.");
+                return;
+            }
+
+            // 주민등록번호 유효성 검사
+            if (address_f.value.length !== 6 || address_b.value.length !== 7 || isNaN(address_f.value) || isNaN(address_b.value)) {
+                alert("유효한 주민등록번호를 입력해주세요.");
+                address_f.value = "";
+                address_b.value = "";
+                address_f.focus();
+                return;
+            }
+
+            // 생일 유효성 검사
+            if (birthdate.value === "") {
+                alert("생일을 선택해주세요.");
+                return;
+            }
+
+            for (var i = 0; i < hobby.length; i++) {
+                //선택이 되었을 경우
+                if (hobby[i].checked) {
+                    hobbyCheck++;
+                    hobbies.push(hobby[i].value);    //배열 삽입
+                }
+            }
+
+            //선택 된 값이 0개일 경우 
+            if (hobbyCheck == 0 || hobbies.length == 0) {
+                alert("선택한 취미가 없습니다.")
+                //함수 강제 종료
+                return;
+            }
+
+            console.clear();
+
+            // 성공적으로 유효성을 통과한 경우 콘솔에 정보 출력
+            console.log("회원 정보:");
+            console.log("아이디:", userId.value);
+            console.log("비밀번호:", password.value);
+            console.log("이메일:", email.value + "@" + document.getElementById("mail").value);
+            console.log("이름:", name.value);
+            console.log("주민등록번호:", address_f.value + "-" + address_b.value);
+            console.log("생일:", birthdate.value);
+            console.log("관심분야:", hobbies);
+            console.log("자기소개:", introduction.value);
+
+            alert("등록되었습니다!");
+        }
+
+        function resetForm() {
+            userId.value = "";
+            password.value = "";
+            passwordCheck.value = "";
+            email.value = "";
+            name.value = "";
+            address_f.value = "";
+            address_b.value = "";
+            birthdate.value.value = "2001-03-10";
+            document.querySelectorAll('input[name="hobbys"]').forEach(el => el.checked = false);
+            introduction.value = "";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let points = [];
+            const pointCount = 70;
+
+            // 점 생성 및 초기 속성 설정
+            for (let i = 0; i < pointCount; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const dx = (Math.random() - 0.5) * 4; // x 방향 속도
+                const dy = (Math.random() - 0.5) * 4; // y 방향 속도
+                points.push({ x, y, dx, dy });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스 클리어
+
+                // 선 그리기 (점 연결)
+                ctx.strokeStyle = 'rgba(102, 102, 153, 0.7)'; // 선 색상과 투명도 조정
+                ctx.lineWidth = 2; // 선 두께 조정
+                points.forEach((point, index) => {
+                    for (let j = index + 1; j < points.length; j++) {
+                        if (Math.abs(point.x - points[j].x) <= 350 && Math.abs(point.y - points[j].y) <= 350) {
+                            ctx.beginPath();
+                            ctx.moveTo(point.x, point.y);
+                            ctx.lineTo(points[j].x, points[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                });
+
+                // 점 위치 업데이트 및 재그리기
+                points.forEach(point => {
+                    point.x += point.dx;
+                    point.y += point.dy;
+
+                    // 경계 처리
+                    if (point.x <= 0 || point.x >= canvas.width) point.dx *= -1;
+                    if (point.y <= 0 || point.y >= canvas.height) point.dy *= -1;
+
+                    ctx.fillStyle = '#0000ff'; // 점 색상 변경
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 5, 0, Math.PI * 2, true); // 점 크기 조정
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(animate); // 다음 애니메이션 프레임 요청
+            }
+
+            animate(); // 애니메이션 시작
+        });
+    </script>
+</body>
+
+</html>

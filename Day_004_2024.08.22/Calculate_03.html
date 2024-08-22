@@ -24,16 +24,16 @@
         let value = document.getElementById('result');
         function result() {
             if(op.value == 1){
-                value.value = Number(num1.value) + Number(num2.value);
+                value.value = parseInt(num1.value) + parseInt(num2.value);
             }
             else if(op.value == 2){
-                value.value = Number(num1.value) - Number(num2.value);
+                value.value = parseInt(num1.value) - parseInt(num2.value);
             }
             else if(op.value == 3){
-                value.value = Number(num1.value) * Number(num2.value);
+                value.value = parseInt(num1.value) * parseInt(num2.value);
             }
             else if(op.value == 4){
-                value.value = Number(num1.value) / Number(num2.value);
+                value.value = parseInt(num1.value) / parseInt(num2.value);
             }
             
         }
