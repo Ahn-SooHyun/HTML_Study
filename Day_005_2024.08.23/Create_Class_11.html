@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #000;
+            background-color: deepskyblue;
+            transform: width 2s, heigh 2s;
+        }
+        .wid {
+            width: 80vw;
+        }
+        .hei {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value="너비 늘리기">
+    <input type="button" id="btn2" value="높이 늘리기">
+    <div class="box"></div>
+
+    <script>
+        // class 생성 방법
+        // Element.classList.add([클래스 명칭]);
+
+        // class 삭제 방법
+        // Element.classList.remove([클래스 명칭]);
+
+        // class 존재유무 확인
+        // Element.classList.contains([클래스 명칭]);
+
+        // 너비 늘리기
+        document.getElementById('btn1').addEventListener('click', wid);
+        
+        function wid() {
+            let box = document.querySelector('.box');
+            if ( box.classList.contains('wid')) {
+                box.classList.remove('wid');
+            }
+            else {
+                box.classList.add('wid');
+            }
+        }
+
+        // 높이 늘리기
+        document.getElementById('btn2').addEventListener('click', hei);
+        
+        function hei() {
+            let box = document.querySelector('.box');
+            if ( box.classList.contains('hei')) {
+                box.classList.remove('hei');
+            }
+            else {
+                box.classList.add('hei');
+            }
+            
+        }
+    </script>
+</body>
+</html>
