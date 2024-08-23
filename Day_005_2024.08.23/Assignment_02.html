@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            White-space: nowrap;
+        }
+        .box, .box2 {
+            margin-top: 100px;
+            width: 300px;
+            height: 300px;
+            border: 3px solid #000;
+            background-color: deepskyblue;
+            transition: width 5s, height 5s;
+        }
+        .wid {
+            width: 100vw;
+        }
+        .hei {
+            height: 100vh;
+        }
+        .background-color {
+            background-color: navy; 
+        }
+        .color {
+            border: 8px solid green;
+        }
+        .img {
+            background: url("../Media/JPG/ar.jpeg");
+            animation: rote 0.3s infinite linear;
+        }
+        @keyframes rote {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                 transform: rotate(360deg);
+            }
+        }
+        .imgrev {
+            background: url("../Media/JPG/ar.jpeg");
+            animation: roterev 0.3s infinite linear;
+        }
+        @keyframes roterev {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                 transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value="너비 늘리기">
+    <input type="button" id="btn2" value="높이 늘리기">
+    <input type="button" id="btn3" value="배경색 설정">
+    <input type="button" id="btn4" value="태두리 설정">
+    <input type="button" id="btn5" value="이잉 앗살라말라이꿈">
+    <div class="box"></div>
+    <div class="box2"></div>
+
+    <script>
+        // class 생성 방법
+        // Element.classList.add([클래스 명칭]);
+
+        // class 삭제 방법
+        // Element.classList.remove([클래스 명칭]);
+
+        // class 존재유무 확인
+        // Element.classList.contains([클래스 명칭]);
+
+        // 너비 늘리기
+        document.getElementById('btn1').addEventListener('click', wid);
+        
+        function wid() {
+            let box = document.querySelector('.box');
+            let box2 = document.querySelector('.box2');
+            if ( box.classList.contains('wid')) {
+                box.classList.remove('wid');
+                box2.classList.remove('wid');
+            }
+            else {
+                box.classList.add('wid');
+                box2.classList.add('wid');
+            }
+        }
+
+        // 높이 늘리기
+        document.getElementById('btn2').addEventListener('click', hei);
+        
+        function hei() {
+            let box = document.querySelector('.box');
+            let box2 = document.querySelector('.box2');
+            if ( box.classList.contains('hei')) {
+                box.classList.remove('hei');
+                box2.classList.remove('hei');
+            }
+            else {
+                box.classList.add('hei');
+                box2.classList.add('hei');
+            }
+            
+        }
+        
+        document.getElementById('btn3').addEventListener('click', bk);
+
+        function bk() {
+            let box = document.querySelector('.box');
+            let box2 = document.querySelector('.box2');
+            if ( box.classList.contains('background-color')) {
+                box.classList.remove('background-color');
+                box2.classList.remove('background-color');
+            }
+            else {
+                box.classList.add('background-color');
+                box2.classList.add('background-color');
+            }
+            
+        }
+
+        document.getElementById('btn4').addEventListener('click', co);
+        
+        function co() {
+            let box = document.querySelector('.box');
+            let box2 = document.querySelector('.box2');
+            if ( box.classList.contains('color')) {
+                box.classList.remove('color');
+                box2.classList.remove('color');
+            } 
+            else {
+                box.classList.add('color');
+                box2.classList.add('color');
+            }
+            
+        }
+
+        document.getElementById('btn5').addEventListener('click', ing);
+        
+        function ing() {
+            let box = document.querySelector('.box');
+            let box2 = document.querySelector('.box2');
+            if ( box.classList.contains('img')) {
+                box.classList.remove('img');
+                box2.classList.remove('imgrev');
+            }
+            else {
+                box.classList.add('img');
+                box2.classList.add('imgrev');
+            }
+            
+        }
+    </script>
+</body>
+</html>
