@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>구구단 생성기</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f0f0;
+                font-size: 30px; /* 기본 글자 크기를 30px로 설정 */
+            }
+            h1 {
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 40px; /* 제목 글자 크기를 40px로 설정 */
+            }
+            .input-container {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            input[type="text"] {
+                padding: 13px; /* 높이를 1.3배로 조정 */
+                font-size: 28px; /* 입력 필드 글자 크기를 28px로 설정 */
+                border-radius: 8px;
+                border: 2px solid #ccc;
+                width: 225px; /* 너비를 1.5배로 조정 */
+                text-align: center;
+            }
+            input[type="button"] {
+                padding: 13px 30px; /* 높이를 1.3배로 조정 */
+                font-size: 28px; /* 버튼 글자 크기를 28px로 설정 */
+                border-radius: 8px;
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            input[type="button"]:hover {
+                background-color: #45a049;
+            }
+            #result {
+                margin-top: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 500px;
+                text-align: center;
+                font-size: 28px; /* 결과 글자 크기를 28px로 설정 */
+            }
+            span {
+                display: block;
+                margin: 5px 0;
+            }
+            span:nth-child(2n) {
+                background-color: #e0e0e0;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>구구단 생성기</h1>
+        <div class="input-container">
+            <input type="text" placeholder="첫 번째 숫자">
+            <input type="text" placeholder="두 번째 숫자">
+            <input type="button" value="생성" onclick="Create()">
+        </div>
+        <div id="result">
+            <span></span>
+        </div>
+
+        <script>
+            function Create() {
+                let number = document.getElementsByTagName('input');
+                let str = '';
+                let firstNumber = parseInt(number[0].value);
+                let secondNumber = parseInt(number[1].value);
+                if (firstNumber > 100 || secondNumber > 100) {
+                    alert('return');
+                    number[0].value = '';
+                    number[1].value = '';
+                    number[0].focus();
+                    return
+                }
+                for ( let i = 1; i <= secondNumber; i++) {
+                    str += '<span>' + firstNumber + " * "  + i + " = " + (firstNumber * i) + '</span>';
+                }
+                document.getElementById('result').innerHTML = str;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Calculate</title>
+    <style>
+        * {
+            margin: 10px;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        select {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="First Number">
+    <select id="op">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+    </select>
+    <input type="text" placeholder="Second Number">
+    <input type="button" onclick="result()" value="=">
+    <input type="text" placeholder="Result">
+    <br><br>
+
+    <!-- <input type='text' placeholder="결과 출력"> -->
+    <!-- 결과 입력 -->
+    <span> id, name 추가 등 자유, 여기에 결과를 출력해주세요.</span>
+
+    <script>
+        //html 테그 더 이상 걸들지 말 것
+        let do_tag = document.getElementsByTagName('input'); // input 모두 불러오기
+        let sel = document.getElementById('op'); // select 불러오기
+        function result() {
+            if(op.value == 1){
+                do_tag[3].value = parseInt(do_tag[0].value) + parseInt(do_tag[1].value);
+            }
+            else if(op.value == 2){
+                do_tag[3].value = parseInt(do_tag[0].value) - parseInt(do_tag[1].value);
+            }
+            else if(op.value == 3){
+                do_tag[3].value = parseInt(do_tag[0].value) * parseInt(do_tag[1].value);
+            }
+            else if(op.value == 4){
+                do_tag[3].value = parseInt(do_tag[0].value) / parseInt(do_tag[1].value);
+            }
+            
+            let comp = confirm('ID만 입력하시겠습니까? 아니면 이름까지 입력하시겠습니까?');
+            let id;
+            let name;
+            if (comp) {
+                id = prompt('ID 입력');
+                document.getElementsByTagName('span')[0].innerText = "ID: " + id;
+            }
+            else {
+                id = prompt('ID 입력');
+                name = prompt('Name 입력');
+                document.getElementsByTagName('span')[0].innerText = "ID: " + id + ", Name: " + name;
+            }
+        }
+    </script>
+</body>
+</html>

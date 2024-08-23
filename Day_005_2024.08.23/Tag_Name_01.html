@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tag Name</title>
+    </head>
+
+    <body>
+        <input type="text" id="id" name="name" value="HelloWorld">
+        <script>
+            //ID 호출
+            let do_id = document.getElementById('id');
+            console.log('do_id', do_id);
+
+            //name
+            let do_name = document.getElementsByName('nane');
+            console.log('do_name', do_name);
+
+            //테그
+            let do_tag = document.getElementsByTagName('input');
+            console.log('do_tag', do_tag);
+            for (let i = 0; i < do_tag.length; i++) {
+                console.log(do_tag[i].value);
+                console.log(do_tag[i].type);
+            }
+        </script>
+    </body>
+</html>

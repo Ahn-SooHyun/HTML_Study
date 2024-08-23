@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Calculate</title>
+    <style>
+        * {
+            margin: 10px;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        select {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="First Number">
+    <select id="op">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+    </select>
+    <input type="text" placeholder="Second Number">
+    <input type="button" onclick="result()" value="=">
+    <input type="text" placeholder="Result">
+
+    <script>
+        let do_tag = document.getElementsByTagName('input');
+        let sel = document.getElementById('op');
+        function result() {
+            if(op.value == 1){
+                do_tag[3].value = parseInt(do_tag[0].value) + parseInt(do_tag[1].value);
+            }
+            else if(op.value == 2){
+                do_tag[3].value = parseInt(do_tag[0].value) - parseInt(do_tag[1].value);
+            }
+            else if(op.value == 3){
+                do_tag[3].value = parseInt(do_tag[0].value) * parseInt(do_tag[1].value);
+            }
+            else if(op.value == 4){
+                do_tag[3].value = parseInt(do_tag[0].value) / parseInt(do_tag[1].value);
+            }
+            
+        }
+    </script>
+</body>
+</html>
