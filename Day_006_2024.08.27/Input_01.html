@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id" placeholder="input">
+    <input type="button" value="클릭" onclick="send()">
+    <br>
+    <span id="result">출력</span>
+
+    <script>
+        //java : method => JS : function(함수)
+        function send() {
+            //javascript는 전부 변수에가다 담을 수 있다.
+            let id = document.getElementById('id');
+            let result = document.getElementById('result');
+            console.log(id);
+
+            //input의 값은 value
+            //html의 text출력은 innerText 혹은 innerHTML
+            result.innerText = id.value;
+        }
+    </script>
+</body>
+</html>
