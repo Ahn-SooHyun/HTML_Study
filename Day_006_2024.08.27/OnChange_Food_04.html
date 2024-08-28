@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            img {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>음식 고르기</h1>
+        <select id="menu01" onchange="Box()">
+            <option value="coffee">커피</option>
+            <option value="cake">케이크</option>
+            <option value="cookie">쿠키</option>
+        </select>
+        <br><br><br><br><br>
+
+        <img id="displayImage" src="../Media/JPG/coffee.jpg">
+        
+        <script>
+            Box();
+            function Box() {
+                var Box = document.getElementById('menu01');
+                let img = document.getElementById('displayImage')
+                if (Box.value == "coffee") {
+                    img.src = "../Media/JPG/coffee.jpg"
+                }
+                else if (Box.value == "cake") {
+                    img.src = "../Media/JPG/cake.jpg"
+                }
+                else if (Box.value == "cookie") {
+                    img.src = "../Media/JPG/cookie.jpg"
+                }
+            }
+        </script>
+    </body>
+</html>

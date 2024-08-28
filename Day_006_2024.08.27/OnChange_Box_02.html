@@ -8,20 +8,18 @@
     
     <body>
         <select id="menu01" onchange="Box()">
-            <option value="coffe">커피</option>
+        <!-- <select id="menu01" onchange="Box(event)"> -->
+            <option value="coffee">커피</option>
             <option value="cake">케이크</option>
         </select>
 
-        <select id="menu02">
-
-        </select>
+        <select id="menu02"></select>
         
         <script>
             Box();
             function Box() {
                 var Box = document.getElementById('menu01');
-                
-                if (Box.value == "coffe") {
+                if (Box.value == "coffee") {
                     str ='<option>아메리카노 </option>'
                         + '<option>카푸치노 </option>';
                 }
@@ -31,6 +29,23 @@
                 }
                 document.getElementById('menu02').innerHTML = str;
             }
+
+            // Box("coffee");
+            // function Box(e) {
+            //     console.log(e.target);
+            //     let menu01 = document.getElementById('menu01');
+            //     let menu02 = document.getElementById('menu02');
+
+            //     if (menu01.value == "coffee") {
+            //         menu02.innerHTML ='<option>아메리카노 </option>'
+            //                          + '<option>카푸치노 </option>';
+            //     }
+            //     else if (menu01.value == "cake") {
+            //         menu02.innerHTML = '<option>치즈 케이크 </option>'
+            //                          + '<option>생크림 케이크 </option>';
+            //     }
+
+            // }
         </script>
     </body>
 </html>
