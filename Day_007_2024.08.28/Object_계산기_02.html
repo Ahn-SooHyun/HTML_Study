@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="First_Number"  placeholder="First Number" ><br>
+    <input type="text" id="Second_Number" placeholder="Second Number"><br>
+    <input type="button" value="계산" onclick="계산()">
+
+    <script>
+        //html에서 계산 버튼 누르면 실행
+        function 계산() {
+            let fnum = document.getElementById('First_Number' ).value;
+            let snum = document.getElementById('Second_Number' ).value;
+            let obj = new Object(); // {};
+
+            obj.plus    = Number(fnum) + Number(snum); // +는 문자 + 문자
+            obj.minus   = fnum - snum;
+            obj.mul     = fnum * snum;
+            //똑같은 key가 두 번 되었을 때, 마지막 값이 저장.
+            obj.div     = fnum / snum;
+            obj.div     = (fnum > snum)? fnum / snum: snum / fnum;
+            console.log(obj)
+        }
+    </script>
+</body>
+</html>

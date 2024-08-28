@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="First_Number"  placeholder="First Number" ><br>
+    <input type="text" id="Second_Number" placeholder="Second Number"><br>
+    <input type="button" value="계산" onclick="계산()">
+
+    <script>
+        function 계산() {
+            let fnum = parseInt(document.getElementById('First_Number' ).value);
+            let snum = parseInt(document.getElementById('Second_Number' ).value);
+            let obj = {};
+            obj.div     = fnum / snum;
+            obj.minus   = fnum - snum;
+            obj.mul     = fnum * snum;
+            obj.plus    = fnum + snum;
+            console.log(obj);
+        }
+    </script>
+</body>
+</html>
