@@ -1,131 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* 기본 설정 */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f3;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* 기본 설정 */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f0f3;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
 
-        .main {
-            background: #ffffff; /* 순수한 흰색 대신 약간의 그레이 톤을 추가할 수 있습니다 */
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-        }
+            .main {
+                background: #ffffff; /* 순수한 흰색 대신 약간의 그레이 톤을 추가할 수 있습니다 */
+                padding: 2rem;
+                border-radius: 10px;
+                text-align: center;
+            }
 
+            .btn01 {
+                border: none;
+                margin: 15px;
+                padding: 15px;
+                text-align: center;
+                border-radius: 12px;
+                width: 200px;
+                cursor: pointer;
+                transition: background 0.3s, box-shadow 0.3s;
+                background: #eceef1;
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+            }
 
-        .btn01 {
-            border: none;
-            margin: 15px;
-            padding: 15px;
-            text-align: center;
-            border-radius: 12px;
-            width: 200px;
-            cursor: pointer;
-            transition: background 0.3s, box-shadow 0.3s;
-            background: #eceef1;
-            color: #333;
-            font-size: 16px;
-            font-weight: bold;
-        }
+            .btn01:hover {
+                box-shadow: inset 6px 6px 10px #d1d1d1, inset -6px -6px 10px #ffffff;
+            }
 
-        .btn01:hover {
-            box-shadow: inset 6px 6px 10px #d1d1d1, inset -6px -6px 10px #ffffff;
-        }
+            .font {
+                margin: 15px;
+                color: #666;
+                font-size: 18px;
+                font-weight: bold;
+            }
 
-        .font {
-            margin: 15px;
-            color: #666;
-            font-size: 18px;
-            font-weight: bold;
-        }
+            .blue {
+                background-color: #8aaae5;
+            }
 
-        .blue {
-            background-color: #8aaae5;
-        }
+            .green {
+                background-color: #8bc34a;
+            }
 
-        .green {
-            background-color: #8bc34a;
-        }
+            .red {
+                background-color: #f44336;
+            }
 
-        .red {
-            background-color: #f44336;
-        }
+        </style>
+        <script>
 
-    </style>
-    <script>
+            var start;
+            
+            function rand(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
 
-        var start;
-        
-        function rand(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        
-        function timerstart() {
-            let backcol = document.querySelector('.backcol');
-            let str = ''
-            console.log('start')
-            str = '<div class="font">Wait</div>'
-                + '<div class="btn01" > --- </div>';
-            document.getElementById('main').innerHTML = str;
-            setTimeout(function() {
-                backcol.classList.add('blue');
-                start = new Date();
-                console.log(start)
-                str = '<div class="font">Time : 0.000S</div>'
-                    + '<div class="btn01" onclick="stop()"> STOP </div>'
+            
+            function timerstart() {
+                let backcol = document.querySelector('.backcol');
+                let str = ''
+                console.log('start')
+                str = '<div class="font">Wait</div>'
+                    + '<div class="btn01" > --- </div>';
                 document.getElementById('main').innerHTML = str;
-            }, rand(10, 5000))
-        }
+                setTimeout(function() {
+                    backcol.classList.add('blue');
+                    start = new Date();
+                    console.log(start)
+                    str = '<div class="font">Time : 0.000S</div>'
+                        + '<div class="btn01" onclick="stop()"> STOP </div>'
+                    document.getElementById('main').innerHTML = str;
+                }, rand(10, 5000))
+            }
 
-        function stop() {
-            let backcol = document.querySelector('.backcol');
-            var crrDate = new Date();
-            var since = parseFloat(Math.ceil(( crrDate-start))/1000).toFixed(3);
-            backcol.classList.remove('blue');
-            if (since <= 0.500) {
-                backcol.classList.add('green');
+            function stop() {
+                let backcol = document.querySelector('.backcol');
+                var crrDate = new Date();
+                var since = parseFloat(Math.ceil(( crrDate-start))/1000).toFixed(3);
+                backcol.classList.remove('blue');
+                if (since <= 0.500) {
+                    backcol.classList.add('green');
+                }
+                else {
+                    backcol.classList.add('red');
+                }
+                str = '<div class="font">Time : ' + since + 'S</div>'
+                    + '<div class="btn01" onclick="res()"> ReStart </div>'
+                document.getElementById('main').innerHTML = str;
             }
-            else {
-                backcol.classList.add('red');
-            }
-            str = '<div class="font">Time : ' + since + 'S</div>'
-                + '<div class="btn01" onclick="res()"> ReStart </div>'
-            document.getElementById('main').innerHTML = str;
-        }
 
-        function res() {
-            let backcol = document.querySelector('.backcol');
-            if (backcol.classList.contains('green')) {
-                backcol.classList.remove('green');
+            function res() {
+                let backcol = document.querySelector('.backcol');
+                if (backcol.classList.contains('green')) {
+                    backcol.classList.remove('green');
+                }
+                else {
+                    backcol.classList.remove('red');
+                }
+                str = '<div class="font">Start</div>'
+                    + '<div class="btn01" onclick="timerstart()"> Start </div>'
+                document.getElementById('main').innerHTML = str;
             }
-            else {
-                backcol.classList.remove('red');
-            }
-            str = '<div class="font">Start</div>'
-                + '<div class="btn01" onclick="timerstart()"> Start </div>'
-            document.getElementById('main').innerHTML = str;
-        }
 
-    </script>
-</head>
-<body class="backcol">
-    <div class="main" id="main">
-        <div class="font">Start</div>
-        <div class="btn01" onclick="timerstart()"> Start </div>
-    </div>
-</body>
+        </script>
+    </head>
+    <body class="backcol">
+        <div class="main" id="main">
+            <div class="font">Start</div>
+            <div class="btn01" onclick="timerstart()"> Start </div>
+        </div>
+    </body>
 </html>
