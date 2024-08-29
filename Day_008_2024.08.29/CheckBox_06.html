@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Lib/JQuery_3.7.1.js"></script>
+</head>
+<body>
+    <h1>Hobby</h1>
+    <input type="checkbox" name="hobby" id="hobby_01" value="독서" checked><label for="hobby_01">독서</label>
+    <input type="checkbox" name="hobby" id="hobby_02" value="레저"        ><label for="hobby_02">레저</label>
+    <input type="checkbox" name="hobby" id="hobby_03" value="자전거"      ><label for="hobby_03">자전거</label>
+    <input type="checkbox" name="hobby" id="hobby_04" value="음악감상"    ><label for="hobby_04">음악감상</label>
+    <input type="checkbox" name="hobby" id="hobby_05" value="게임"        ><label for="hobby_05">게임</label>
+    <input type="checkbox" name="hobby" id="hobby_06" value="영화"        ><label for="hobby_06">영화</label>
+
+    <input type="button" value="값 확인하기1" onclick="send1()">
+    <input type="button" value="값 확인하기2" onclick="send2()">
+    <input type="button" value="값 확인하기3(난이도 있음)" onclick="send3()">
+    <input type="button" value="모두 선택" onclick="allCheck()">
+    <input type="button" value="모두 해제" onclick="zeroCheck()">
+
+    <script>
+        //쉽게 모두 가지고 오는 방법
+        function send1() {
+            let hobby = $('input[name="hobby"]');  // 선택자가 name을 따로 불러오는 방법이 없기 때문에
+            //name은 테그를 통해서 불러옵니다.
+            //위의 방법이 싫다. 그러면 class를 임시로 지정.
+            //$('.inputRadio') => inputRadio class 가진 것 모두 불러옴
+            for(let i = 0; i< hobby.length; i++) {
+                //선택 값을 확인하고 싶습니다.
+                if(hobby[i].checked == true) {  // => if(radio[i].checked) => true.
+                    console.log('선택 된 값 : ', hobby[i].value);
+                }
+            }
+        }
+
+        function send2() {
+            let hobby = $('input[name="hobby"]:checked');   // check된 목록만 가져 온다.
+            let length = hobby.length;                      // 체크 된 갯수 0 => 선택
+
+            console.log(hobby);
+            console.log(length);
+
+            for (let i = 0; i < hobby.length; i++) {
+                console.log('선택된 value : ', hobby[i].value);
+            }
+        }
+
+        function send3() {
+            //하나라도 채크 되었는지 확인 여부
+            let check = $('input[name="hobby"]').is(':checked');
+            if($('input[name="hobby"]').is(':checked')) {
+                // 한개라도 check 되었다.
+            }
+
+            // foreach
+            // function(index) => index => { }
+            $('input[name="hobby"]').each(index => {
+                // 자신의 행이 소속 된 element를 this.
+                // 자기자신이 check 여부 판단.
+                if($(this).is(':checked')) {
+                    console.log($(this).val());
+                }
+            })
+        }
+
+        function allCheck() {
+            $('input[name="hobby"]').prop('checked', true);
+        }
+
+        function zeroCheck() {
+            $('input[name="hobby"]').prop('checked', false);
+        }
+    </script>
+</body>
+</html>
