@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node 호출_2</title>
+    <script src="../Lib/JQuery_3.7.1.js"></script>
+</head>
+<body>
+    <input type="text" id="userID" placeholder="input Your Name">
+    <input type="button" value="ajax 호출" onclick="btn_1()">
+
+    
+    <script>
+        function btn_1() {
+            console.clear();
+            let name = document.getElementById('userID');
+            
+            let obj = {'userID': name.value};
+
+            //초기화
+            name.value = '';
+            name.focus();
+
+            // location.href = 'http://localhost:3000/db';
+            //비동기(화면을 움직이지 않는다.)
+            $.ajax({
+                url: 'http://localhost:3000/get',
+                type: 'get',    //default는 get이기 때문에 생략 가능.
+                data: obj,
+                dataType: 'json',
+                success: function(res) {
+                    console.log(res);
+                    if(res.status == 200) {
+                        let list = res.list;
+                    }
+                },
+                //같은거
+                // success: res=> {
+
+                // }
+            })
+
+        }
+    </script>
+</body>
+</html>
