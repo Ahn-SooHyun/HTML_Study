@@ -1,0 +1,23 @@
+//이틀
+
+//통신
+// Project (get, post)
+// 통신 방식 method: get, post
+
+// JS에서 비동기 통신
+Promise
+// Cookie
+//localStroge
+
+//수업 X (JSP 수업 시간에)
+// Session <= 이 개념은 js보다 JSP가 적합
+
+
+-------------------------------------
+JS 비동기 통신
+ 
+JS가 스스로 해결하기 어려운 부분(비동기 처리)
+HTML, CSS, JAVASCRIPT 함수 JAVASCRIPT가 처리가 가능한 영역 (괜찮다.)
+
+ajax, axios, petch (통신, server하고 통신)
+FTP 파일 I/O 등 이 코드가 만약에 오면, 안 기다리고 다음 실행.
