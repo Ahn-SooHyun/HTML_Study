@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Lib/JQuery/JQuery_3.7.1.js"></script>
+    <link rel="stylesheet" href="Assignment_Login_1.css"/>
+    
+</head>
+<body>
+    <div class="login">
+        <div class="form">
+        <h2>Hello User</h2>
+        <div class="form-field">
+            <label for="login-mail"><i class="fa fa-user"></i></label>
+            <input id="login-ID" type="text" name="ID" placeholder="ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <svg>
+            <use href="#svg-check" />
+            </svg>
+        </div>
+        <div class="form-field">
+            <label for="login-password"><i class="fa fa-lock"></i></label>
+            <input id="login-password" type="password" name="password" placeholder="Password" pattern=".{6,}" required>
+            <svg>
+            <use href="#svg-check" />
+            </svg>
+        </div>
+        <button type="submit" class="button">
+            <div class="arrow-wrapper">
+            <span class="arrow"></span>
+            </div>
+            <p class="button-text">SIGN IN</p>
+        </button>
+        </div>
+        <div class="finished">
+        <svg>
+            <use href="#svg-check" />
+        </svg>
+        </div>
+    </div>
+
+    <script>
+        let obj = { };
+        autologin();
+        function autologin() {
+            console.log('1')
+            if (getCookies('pw') != null && getCookies('pw') != 'undefined'){
+                obj = {
+                    'ID': getCookies('ID'),
+                    'pw': getCookies('pw')
+                };
+                loginch();
+            }
+            console.log('1')
+        }
+
+        function getCookies(name) {
+            
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) == 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+
+        //cookie 저장 형태
+        cook=100; cook1=150
+
+
+        $('.button').on('click', function () {
+            
+            console.clear();
+            let ID = document.getElementById('login-ID');
+            let pw = document.getElementById('login-password');
+            
+            obj = {
+                'ID': ID.value,
+                'pw': pw.value
+            };
+
+            loginch();
+        });
+
+        function loginch() {
+            console.log(obj);
+            $('.login').addClass('loading').delay(2000).queue(function () {
+                $(this).addClass('active')
+            });
+            $.ajax({
+                url: 'http://localhost:3000/Login',
+                type: 'get',    //default는 get이기 때문에 생략 가능.
+                data: obj,
+                dataType: 'json',
+                success: function(res) {
+                    console.log(res.status)
+                    if(res.status == 200) {
+                        setTimeout(loginsuc, 3000);
+                    }
+                    else if(res.status == 100) {
+                        setTimeout(logionfal, 3000);
+                    }
+                },
+            })
+        }
+
+        function loginsuc() {
+            let date = new Date();
+            console.log(date.toUTCString());
+            date.setTime(date.getTime() + (1000 * 60 * 60 * 24 * 7));
+            console.log(date.toUTCString());
+            let expires = ' expires='+date.toUTCString();
+            console.log('user=value;' + expires)
+            
+            document.cookie = 'ID=' + obj.ID + ';' + expires;
+            document.cookie = 'pw=' + obj.pw + ';' + expires;
+
+            location.href='Assignment_Window_Screen_1.html';
+        }
+
+        function logionfal() {
+            alert('로그인 실패')
+            location.href = "Assignment_Login_1.html"
+        }
+
+    </script>
+    
+</body>
+</html>
